@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-api-types": "openapi-typescript https://raw.githubusercontent.com/gothinkster/realworld/main/api/openapi.yml --output ./app/shared/api/v1.d.ts"
   },
   "dependencies": {
     "next": "15.0.3",
