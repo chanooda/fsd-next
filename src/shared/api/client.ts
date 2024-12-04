@@ -1,8 +1,4 @@
-import createClient from "openapi-fetch";
+import PocketBase from "pocketbase";
+import { backendBaseUrl } from "../config";
 
-import { backendBaseUrl } from "@/shared/config";
-import type { paths } from "./v1";
-
-export const { GET, POST, PUT, DELETE } = createClient<paths>({
-  baseUrl: backendBaseUrl,
-});
+export const pb = new PocketBase(backendBaseUrl);

@@ -1,27 +1,29 @@
-import { Article } from "@/shared/api";
+import { ArticleRes } from "@/entities/article";
 import Image from "next/image";
 import Link from "next/link";
 
 interface ArticlePreviewProps {
-  article: Omit<Article, "body">;
+  article: ArticleRes;
 }
 
 export const ArticlePreview = ({ article }: ArticlePreviewProps) => {
   return (
     <div>
       <div>
-        <Link href={`/profile/${article.author.username}`}>
-          <Image
-            src={article.author.image}
-            alt={article.author.username + "profile"}
-          />
+        <Link href={`/profile/${article.author.name}`}>
+          {article.author.avatar ? (
+            <Image
+              src={article.author.avatar}
+              alt={article.author.name + "profile"}
+            />
+          ) : null}
         </Link>
         <div>
-          <Link href={`/profile/${article.author.username}`}>
-            {article.author.username}
+          <Link href={`/profile/${article.author.name}`}>
+            {article.author.name}
           </Link>
           <span suppressHydrationWarning>
-            {new Date(article.createdAt).toLocaleDateString(undefined, {
+            {new Date(article.created).toLocaleDateString(undefined, {
               dateStyle: "long",
             })}
           </span>

@@ -1,8 +1,8 @@
-import { loader } from "../api/loader";
+import { getArticlesData } from "@/entities/article";
 import { ArticlePreview } from "./ArticlePreview";
 
 export const FeedPage = async () => {
-  const articles = await loader();
+  const articles = await getArticlesData();
 
   return (
     <div className="flex flex-col">
@@ -17,7 +17,7 @@ export const FeedPage = async () => {
       <div>
         <div>
           <div>
-            {articles?.articles.map((article) => (
+            {articles?.items.map((article) => (
               <ArticlePreview key={article.slug} article={article} />
             ))}
           </div>

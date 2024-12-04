@@ -1,3 +1,3 @@
-export { DELETE, GET, POST, PUT } from "./client";
+export { pb } from "./client";
 
-export type { Article } from "./models";
+export type { DefaultListRequest, DefaultRequest } from "./model";
