@@ -1,9 +1,5 @@
 /// <reference path="../pb_data/types.d.ts" />
 migrate((app) => {
-  const collection = app.findCollectionByNameOrId("pbc_268752357");
-
-  return app.delete(collection);
-}, (app) => {
   const collection = new Collection({
     "createRule": null,
     "deleteRule": null,
@@ -25,24 +21,10 @@ migrate((app) => {
       {
         "autogeneratePattern": "",
         "hidden": false,
-        "id": "text4166911607",
+        "id": "text2560465762",
         "max": 0,
         "min": 0,
-        "name": "username",
-        "pattern": "",
-        "presentable": false,
-        "primaryKey": false,
-        "required": true,
-        "system": false,
-        "type": "text"
-      },
-      {
-        "autogeneratePattern": "",
-        "hidden": false,
-        "id": "text3709889147",
-        "max": 0,
-        "min": 0,
-        "name": "bio",
+        "name": "slug",
         "pattern": "",
         "presentable": false,
         "primaryKey": false,
@@ -53,10 +35,10 @@ migrate((app) => {
       {
         "autogeneratePattern": "",
         "hidden": false,
-        "id": "text3309110367",
+        "id": "text724990059",
         "max": 0,
         "min": 0,
-        "name": "image",
+        "name": "title",
         "pattern": "",
         "presentable": false,
         "primaryKey": false,
@@ -65,9 +47,53 @@ migrate((app) => {
         "type": "text"
       },
       {
+        "autogeneratePattern": "",
         "hidden": false,
-        "id": "bool1908379107",
-        "name": "following",
+        "id": "text1843675174",
+        "max": 0,
+        "min": 0,
+        "name": "description",
+        "pattern": "",
+        "presentable": false,
+        "primaryKey": false,
+        "required": false,
+        "system": false,
+        "type": "text"
+      },
+      {
+        "convertURLs": false,
+        "hidden": false,
+        "id": "editor3685223346",
+        "maxSize": 0,
+        "name": "body",
+        "presentable": false,
+        "required": false,
+        "system": false,
+        "type": "editor"
+      },
+      {
+        "hidden": false,
+        "id": "json2823804126",
+        "maxSize": 0,
+        "name": "tagList",
+        "presentable": false,
+        "required": false,
+        "system": false,
+        "type": "json"
+      },
+      {
+        "hidden": false,
+        "id": "bool4089940794",
+        "name": "isFavorite",
+        "presentable": false,
+        "required": false,
+        "system": false,
+        "type": "bool"
+      },
+      {
+        "hidden": false,
+        "id": "bool2197718287",
+        "name": "favoritesCount",
         "presentable": false,
         "required": false,
         "system": false,
@@ -94,10 +120,10 @@ migrate((app) => {
         "type": "autodate"
       }
     ],
-    "id": "pbc_268752357",
+    "id": "pbc_2473161100",
     "indexes": [],
     "listRule": null,
-    "name": "profile",
+    "name": "article",
     "system": false,
     "type": "base",
     "updateRule": null,
@@ -105,4 +131,8 @@ migrate((app) => {
   });
 
   return app.save(collection);
+}, (app) => {
+  const collection = app.findCollectionByNameOrId("pbc_2473161100");
+
+  return app.delete(collection);
 })

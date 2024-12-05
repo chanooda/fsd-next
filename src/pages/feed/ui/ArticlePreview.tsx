@@ -1,26 +1,26 @@
-import { ArticleRes } from "@/entities/article";
+import { Article } from "@/entities/article";
 import Image from "next/image";
 import Link from "next/link";
 
 interface ArticlePreviewProps {
-  article: ArticleRes;
+  article: Article;
 }
 
 export const ArticlePreview = ({ article }: ArticlePreviewProps) => {
   return (
     <div>
       <div>
-        <Link href={`/profile/${article.author.name}`}>
-          {article.author.avatar ? (
+        <Link href={`/profile/${article.expand.author.user}`}>
+          {article.expand.author.avatar ? (
             <Image
-              src={article.author.avatar}
-              alt={article.author.name + "profile"}
+              src={article.expand.author.avatar}
+              alt={article.expand.author.username + "profile"}
             />
           ) : null}
         </Link>
         <div>
-          <Link href={`/profile/${article.author.name}`}>
-            {article.author.name}
+          <Link href={`/profile/${article.expand.author.user}`}>
+            {article.expand.author.username}
           </Link>
           <span suppressHydrationWarning>
             {new Date(article.created).toLocaleDateString(undefined, {
@@ -37,7 +37,7 @@ export const ArticlePreview = ({ article }: ArticlePreviewProps) => {
         <p>{article.description}</p>
         <span>Read more...</span>
         <ul>
-          {article.tagList.map((tag) => (
+          {article?.tagList?.map((tag) => (
             <li key={tag}>{tag}</li>
           ))}
         </ul>

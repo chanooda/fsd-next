@@ -4,7 +4,8 @@ migrate((app) => {
 
   // update collection data
   unmarshal({
-    "updateRule": "@request.auth.id = author.id"
+    "deleteRule": "@collection.article.author.id = @request.auth.id",
+    "updateRule": "@collection.article.author.id = @request.auth.id"
   }, collection)
 
   return app.save(collection)
@@ -13,7 +14,8 @@ migrate((app) => {
 
   // update collection data
   unmarshal({
-    "updateRule": ""
+    "deleteRule": "@request.body.author.id = @request.auth.id",
+    "updateRule": "@request.body.author.id = @request.auth.id"
   }, collection)
 
   return app.save(collection)

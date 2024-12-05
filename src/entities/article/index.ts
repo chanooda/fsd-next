@@ -1,3 +1,3 @@
 export { getArticlesData } from "./api/getData";
 
-export type { ArticleRes } from "./api/model";
+export type { Article } from "./api/model";

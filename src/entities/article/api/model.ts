@@ -1,17 +1,3 @@
-import { UserRes } from "@/entities/user";
+import { ArticleRes } from "@/shared/api";
 
-export interface ArticleRes {
-  collectionId: string;
-  collectionName: string;
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  body: string;
-  tagList: string[];
-  isFavorite: boolean;
-  favoritesCount: number;
-  author: UserRes;
-  created: string;
-  updated: string;
-}
+export interface Article extends ArticleRes {}

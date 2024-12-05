@@ -1,1 +1,1 @@
-export type { UserRes } from "./api/model";
+export type { User } from "./api/model";

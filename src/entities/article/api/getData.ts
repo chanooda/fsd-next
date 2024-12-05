@@ -10,6 +10,7 @@ export const getArticlesData = async (req?: DefaultListRequest) => {
     });
 
     console.log(articles);
+    console.log(articles.items[0].expand);
 
     return articles;
   } catch (e) {

@@ -3,19 +3,18 @@ migrate((app) => {
   const collection = app.findCollectionByNameOrId("pbc_268752357")
 
   // update field
-  collection.fields.addAt(1, new Field({
-    "autogeneratePattern": "",
+  collection.fields.addAt(4, new Field({
+    "cascadeDelete": false,
+    "collectionId": "_pb_users_auth_",
     "hidden": false,
-    "id": "text4166911607",
-    "max": 0,
-    "min": 0,
-    "name": "username",
-    "pattern": "",
+    "id": "relation2375276105",
+    "maxSelect": 1,
+    "minSelect": 0,
+    "name": "user",
     "presentable": false,
-    "primaryKey": false,
     "required": true,
     "system": false,
-    "type": "text"
+    "type": "relation"
   }))
 
   return app.save(collection)
@@ -23,19 +22,18 @@ migrate((app) => {
   const collection = app.findCollectionByNameOrId("pbc_268752357")
 
   // update field
-  collection.fields.addAt(1, new Field({
-    "autogeneratePattern": "",
+  collection.fields.addAt(4, new Field({
+    "cascadeDelete": false,
+    "collectionId": "_pb_users_auth_",
     "hidden": false,
-    "id": "text4166911607",
-    "max": 0,
-    "min": 0,
-    "name": "username",
-    "pattern": "",
+    "id": "relation2375276105",
+    "maxSelect": 1,
+    "minSelect": 0,
+    "name": "user",
     "presentable": false,
-    "primaryKey": false,
     "required": false,
     "system": false,
-    "type": "text"
+    "type": "relation"
   }))
 
   return app.save(collection)
