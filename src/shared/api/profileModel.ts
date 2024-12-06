@@ -2,11 +2,11 @@ import { DefaultGetRes } from "./model";
 
 export interface GetProfileRes extends DefaultGetRes {
   collectionId: string;
-  collectionName: string;
   id: string;
+  username: string;
+  avatar: string;
   bio: string;
-  image: string;
-  following: boolean;
+  user: string;
   created: string;
   updated: string;
 }

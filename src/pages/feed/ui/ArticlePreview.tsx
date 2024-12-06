@@ -1,5 +1,9 @@
 import { Article } from "@/entities/article";
-import Image from "next/image";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/shared/ui/shadcn/components/ui/avatar";
 import Link from "next/link";
 
 interface ArticlePreviewProps {
@@ -10,12 +14,16 @@ export const ArticlePreview = ({ article }: ArticlePreviewProps) => {
   return (
     <div>
       <div>
-        <Link href={`/profile/${article.expand.author.user}`}>
+        <Link href={`/profile/${article.expand.author.id}`}>
           {article.expand.author.avatar ? (
-            <Image
-              src={article.expand.author.avatar}
-              alt={article.expand.author.username + "profile"}
-            />
+            <Avatar>
+              <AvatarImage
+                src={`http://127.0.0.1:8090/api/files/article/${article.expand.author.avatar}`}
+              />
+              <AvatarFallback>
+                {article.expand.author.username.slice(0, 2)}
+              </AvatarFallback>
+            </Avatar>
           ) : null}
         </Link>
         <div>

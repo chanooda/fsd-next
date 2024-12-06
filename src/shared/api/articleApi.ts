@@ -1,4 +1,5 @@
 import { pb } from "@/shared/config";
+import { inspect } from "node:util";
 import { ArticleGetRes } from "./articleModel";
 import { DefaultListReq } from "./model";
 
@@ -7,6 +8,8 @@ export const getArticle = async (id: string) => {
     const article = await pb.collection<ArticleGetRes>("article").getOne(id, {
       expand: "author",
     });
+
+    console.log(inspect(article, false, null, true));
 
     return article;
   } catch (error) {
@@ -23,6 +26,8 @@ export const getArticles = async (req?: DefaultListReq) => {
         expand: "author",
         ...req,
       });
+
+    console.log("articles", articles);
 
     return articles;
   } catch (e) {
