@@ -1,4 +1,4 @@
 import PocketBase from "pocketbase";
-import { backendBaseUrl } from "../config";
+import { backendBaseUrl } from ".";
 
 export const pb = new PocketBase(backendBaseUrl);

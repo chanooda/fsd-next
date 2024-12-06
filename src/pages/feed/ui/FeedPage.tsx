@@ -1,8 +1,8 @@
-import { getArticlesData } from "@/entities/article";
+import { getArticles } from "@/shared/api";
 import { ArticlePreview } from "./ArticlePreview";
 
 export const FeedPage = async () => {
-  const articles = await getArticlesData();
+  const articles = await getArticles();
 
   return (
     <div className="flex flex-col">

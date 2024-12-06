@@ -10,17 +10,19 @@
     "generate-api-types": "openapi-typescript https://raw.githubusercontent.com/gothinkster/realworld/main/api/openapi.yml --output ./app/shared/api/v1.d.ts"
   },
   "dependencies": {
+    "@lukemorales/query-key-factory": "^1.3.4",
+    "@tanstack/react-query": "^5.62.2",
     "next": "15.0.3",
     "openapi-fetch": "^0.13.1",
     "pocketbase": "^0.22.1",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@feature-sliced/cli": "^1.0.0",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "openapi-typescript": "^7.4.4",
