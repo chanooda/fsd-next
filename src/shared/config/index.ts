@@ -1,2 +1,2 @@
-export { backendBaseUrl } from "./backend";
-export { pb } from "./pbClient";
+export { backendBaseUrl, fileUrl } from "./backend";
+export { getFileUrl, pb } from "./pb";

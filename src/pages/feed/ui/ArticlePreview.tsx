@@ -1,4 +1,5 @@
 import { Article } from "@/entities/article";
+import { getFileUrl } from "@/shared/config";
 import {
   Avatar,
   AvatarFallback,
@@ -18,7 +19,11 @@ export const ArticlePreview = ({ article }: ArticlePreviewProps) => {
           {article.expand.author.avatar ? (
             <Avatar>
               <AvatarImage
-                src={`http://127.0.0.1:8090/api/files/article/${article.expand.author.avatar}`}
+                src={getFileUrl(
+                  article.expand.author.collectionName,
+                  article.expand.author.id,
+                  article.expand.author.avatar
+                )}
               />
               <AvatarFallback>
                 {article.expand.author.username.slice(0, 2)}

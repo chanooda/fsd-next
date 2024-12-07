@@ -1,6 +1,6 @@
-import { ArticleGetRes, ArticlesGetReq, DefaultGetRes } from "@/shared/api";
+import { ArticleGetRes, ArticlesGetReq } from "@/shared/api";
 
-export interface Article extends Omit<ArticleGetRes, keyof DefaultGetRes> {}
+export interface Article extends ArticleGetRes {}
 
 export interface ArticleGetQueryParams {
   id: string;
