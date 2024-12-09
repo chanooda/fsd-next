@@ -10,9 +10,6 @@ export interface ArticleGetRes extends DefaultGetRes {
   isFavorite: boolean;
   favoritesCount: number;
   author: string;
-  id: string;
-  created: string;
-  updated: string;
   expand: {
     author: GetProfileRes;
   };

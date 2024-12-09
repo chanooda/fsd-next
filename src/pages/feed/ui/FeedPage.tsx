@@ -1,5 +1,6 @@
 import { getArticles } from "@/shared/api";
 import { ArticlePreview } from "./ArticlePreview";
+import { Tags } from "./Tags";
 
 export const FeedPage = async () => {
   const articles = await getArticles();
@@ -22,6 +23,9 @@ export const FeedPage = async () => {
             ))}
           </div>
         </div>
+      </div>
+      <div>
+        <Tags />
       </div>
     </div>
   );
