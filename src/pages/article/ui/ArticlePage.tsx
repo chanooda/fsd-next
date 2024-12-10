@@ -28,10 +28,12 @@ export const ArticlePage = async ({ page }: { page?: string }) => {
               <ArticlePreview key={article.id} article={article} />
             ))}
           </div>
-          <ArticlePagination
-            totalPage={articles.totalPages}
-            currentPage={Number(page || 1)}
-          />
+          <div className="mt-4">
+            <ArticlePagination
+              totalPage={articles.totalPages}
+              currentPage={Number(page || 1)}
+            />
+          </div>
         </div>
         <div className="flex h-auto w-80 flex-col gap-2">
           <p className="text-xl">Popular Tags</p>

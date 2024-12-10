@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import {
   PaginationContent,
   PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
   Pagination as ShadcnPagination,
 } from "./shadcn/components/ui/pagination";
 
@@ -15,7 +18,7 @@ interface PaginationProps {
 }
 
 const getStartPage = (currentPage: number, pageSize: number) => {
-  return Math.floor(currentPage / pageSize) * pageSize + 1;
+  return Math.floor((currentPage - 1) / pageSize) * pageSize + 1;
 };
 
 export const Pagination = ({
@@ -36,12 +39,18 @@ export const Pagination = ({
   };
 
   useEffect(() => {
+    console.log(currentPage);
     setStartPage(getStartPage(currentPage, pageSize));
   }, []);
 
   return (
     <ShadcnPagination>
       <PaginationContent>
+        {currentPage <= pageSize && (
+          <PaginationItem>
+            <PaginationPrevious />
+          </PaginationItem>
+        )}
         {Array.from({
           length:
             startPage + pageSize > totalPage
@@ -53,10 +62,17 @@ export const Pagination = ({
               key={index}
               onClick={() => handleChangePage(startPage + index)}
             >
-              {startPage + index}
+              <PaginationLink isActive={currentPage === startPage + index}>
+                {startPage + index}
+              </PaginationLink>
             </PaginationItem>
           );
         })}
+        {currentPage <= pageSize && (
+          <PaginationItem>
+            <PaginationNext />
+          </PaginationItem>
+        )}
       </PaginationContent>
     </ShadcnPagination>
   );
