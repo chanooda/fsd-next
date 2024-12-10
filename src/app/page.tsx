@@ -1,5 +1,5 @@
-import { FeedPage } from "../pages/feed";
+import { ArticlePage } from "../pages/article";
 
-export default function Home() {
-  return <FeedPage />;
+export default async function Home() {
+  return <ArticlePage />;
 }

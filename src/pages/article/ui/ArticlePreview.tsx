@@ -32,16 +32,17 @@ export const ArticlePreview = ({ article }: ArticlePreviewProps) => {
             </Avatar>
           ) : null}
         </Link>
-        <div>
-          <Link href={`/profile/${article.expand.author.id}`}>
-            {article.expand.author.username}
-          </Link>
-        </div>
+        <Link
+          className="text-sm text-gray-700"
+          href={`/profile/${article.expand.author.id}`}
+        >
+          {article.expand.author.username}
+        </Link>
       </div>
       <Link href={`/article/${article.id}`}>
         <div className="flex flex-col">
-          <h1 className="text-2xl">{article.title}</h1>
-          <p className="mt-1 text-gray-600">{article.description}</p>
+          <h1 className="text-xl">{article.title}</h1>
+          <p className="mt-1 text-sm text-gray-600">{article.description}</p>
           <div className="mt-3 flex items-center gap-2 text-xs text-gray-600">
             <span suppressHydrationWarning>
               {new Date(article.created).toLocaleDateString(undefined, {
@@ -50,7 +51,7 @@ export const ArticlePreview = ({ article }: ArticlePreviewProps) => {
             </span>
             <button>
               <div className="flex items-center gap-1">
-                <Heart size={18} className="fill-red-400 stroke-red-400" />
+                <Heart size={12} className="fill-red-400 stroke-red-400" />
                 {article.favoritesCount || 0}
               </div>
             </button>
