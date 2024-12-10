@@ -2,9 +2,13 @@ import { getArticles, getTags } from "@/shared/api";
 import { Badge } from "@/shared/ui";
 import Link from "next/link";
 import { ArticlePreview } from "./ArticlePreview";
+import { ArticlePagination } from "./client";
 
-export const ArticlePage = async () => {
-  const articles = await getArticles();
+export const ArticlePage = async ({ page }: { page?: string }) => {
+  const articles = await getArticles({
+    page: Number(page) || 1,
+    perPage: 1,
+  });
   const tags = await getTags();
 
   return (
@@ -24,6 +28,10 @@ export const ArticlePage = async () => {
               <ArticlePreview key={article.id} article={article} />
             ))}
           </div>
+          <ArticlePagination
+            totalPage={articles.totalPages}
+            currentPage={Number(page || 1)}
+          />
         </div>
         <div className="flex h-auto w-80 flex-col gap-2">
           <p className="text-xl">Popular Tags</p>
