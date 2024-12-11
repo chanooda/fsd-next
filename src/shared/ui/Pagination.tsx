@@ -72,7 +72,7 @@ export const Pagination = ({
             </PaginationItem>
           );
         })}
-        {currentPage <= pageSize && (
+        {totalPage > pageSize && currentPage <= pageSize && (
           <PaginationItem
             onClick={() => handleChangePage(currentPage + 1)}
             className="cursor-pointer"

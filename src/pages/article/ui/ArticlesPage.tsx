@@ -4,10 +4,10 @@ import Link from "next/link";
 import { ArticlePreview } from "./ArticlePreview";
 import { ArticlePagination } from "./client";
 
-export const ArticlePage = async ({ page }: { page?: string }) => {
+export const ArticlesPage = async ({ page }: { page?: string }) => {
   const articles = await getArticles({
     page: Number(page) || 1,
-    perPage: 1,
+    perPage: 10,
   });
   const tags = await getTags();
 
@@ -37,10 +37,12 @@ export const ArticlePage = async ({ page }: { page?: string }) => {
         </div>
         <div className="hidden h-auto min-w-60 flex-col gap-2 md:flex">
           <p className="text-xl">Popular Tags</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 rounded-lg bg-[#242424] p-2">
             {tags?.items.map((tag) => (
               <Link href={`/tag/${tag.id}`} key={tag.id}>
-                <Badge className="cursor-pointer">{tag.name}</Badge>
+                <Badge className="cursor-pointer bg-white text-[#242424] hover:text-white">
+                  {tag.name}
+                </Badge>
               </Link>
             ))}
           </div>
