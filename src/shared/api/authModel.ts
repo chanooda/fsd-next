@@ -14,3 +14,12 @@ export interface GetUserRes {
     profile: GetProfileRes;
   };
 }
+
+export interface SignUptReq {
+  password: string;
+  passwordConfirm: string;
+  email: string;
+  emailVisibility: boolean;
+  verified: boolean;
+  name: string;
+}

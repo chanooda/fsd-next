@@ -8,4 +8,5 @@ export * from "./tagModel";
 
 export * from "./profileModel";
 
-export * from "./userModel";
+export * from "./authApi";
+export * from "./authModel";
