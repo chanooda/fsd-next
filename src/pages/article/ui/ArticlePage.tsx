@@ -22,7 +22,7 @@ export const ArticlePage = async ({ page }: { page?: string }) => {
         </div>
       </div>
       <div className="mx-auto flex w-full max-w-[1200] gap-2 px-4 py-4">
-        <div className="w-full">
+        <div className="w-full min-w-0">
           <div>
             {articles?.items.map((article) => (
               <ArticlePreview key={article.id} article={article} />
@@ -35,7 +35,7 @@ export const ArticlePage = async ({ page }: { page?: string }) => {
             />
           </div>
         </div>
-        <div className="flex h-auto w-80 flex-col gap-2">
+        <div className="hidden h-auto min-w-60 flex-col gap-2 md:flex">
           <p className="text-xl">Popular Tags</p>
           <div className="flex flex-wrap gap-2">
             {tags?.items.map((tag) => (

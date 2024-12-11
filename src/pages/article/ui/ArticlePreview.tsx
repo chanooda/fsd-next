@@ -42,7 +42,9 @@ export const ArticlePreview = ({ article }: ArticlePreviewProps) => {
       <Link href={`/article/${article.id}`}>
         <div className="flex flex-col">
           <h1 className="text-xl">{article.title}</h1>
-          <p className="mt-1 text-sm text-gray-600">{article.description}</p>
+          <span className="mt-1 line-clamp-2 h-10 text-sm text-gray-600">
+            {article.description}
+          </span>
           <div className="mt-3 flex items-center gap-2 text-xs text-gray-600">
             <span suppressHydrationWarning>
               {new Date(article.created).toLocaleDateString(undefined, {

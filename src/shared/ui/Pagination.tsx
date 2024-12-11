@@ -46,8 +46,11 @@ export const Pagination = ({
   return (
     <ShadcnPagination>
       <PaginationContent>
-        {currentPage <= pageSize && (
-          <PaginationItem>
+        {currentPage !== 1 && (
+          <PaginationItem
+            onClick={() => handleChangePage(currentPage - 1)}
+            className="cursor-pointer"
+          >
             <PaginationPrevious />
           </PaginationItem>
         )}
@@ -59,6 +62,7 @@ export const Pagination = ({
         }).map((_, index) => {
           return (
             <PaginationItem
+              className="cursor-pointer"
               key={index}
               onClick={() => handleChangePage(startPage + index)}
             >
@@ -69,7 +73,10 @@ export const Pagination = ({
           );
         })}
         {currentPage <= pageSize && (
-          <PaginationItem>
+          <PaginationItem
+            onClick={() => handleChangePage(currentPage + 1)}
+            className="cursor-pointer"
+          >
             <PaginationNext />
           </PaginationItem>
         )}
