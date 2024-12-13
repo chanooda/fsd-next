@@ -1,7 +1,7 @@
 import { GetUserRes, postUser } from "@/shared/api";
-import { useMutation } from "@/shared/config/client";
+import { useMutation } from "@/shared/lib/client";
 import { ClientResponseError } from "pocketbase";
-import { PostUserParams } from "../../model/auth";
+import { PostUserParams } from "../authDataType";
 
 export const usePostUser = () => {
   return useMutation<GetUserRes, ClientResponseError, PostUserParams>({

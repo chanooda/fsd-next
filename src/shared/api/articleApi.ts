@@ -1,7 +1,27 @@
 import { pb } from "@/shared/config";
 import { inspect } from "node:util";
-import { ArticleGetRes } from "./articleModel";
-import { DefaultListReq } from "./model";
+import { DefaultGetRes, DefaultListReq } from "./global";
+import { GetProfileRes } from "./profileApi";
+
+export interface ArticleGetRes extends DefaultGetRes {
+  slug?: string;
+  title: string;
+  description?: string;
+  body: string;
+  tagList?: string[];
+  isFavorite: boolean;
+  favoritesCount: number;
+  author: string;
+  expand: {
+    author: GetProfileRes;
+  };
+}
+
+export interface ArticleGetReq {
+  id: string;
+}
+
+export interface ArticlesGetReq extends DefaultListReq {}
 
 export const getArticle = async (id: string) => {
   try {

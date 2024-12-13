@@ -1,4 +1,4 @@
-import { DefaultGetRes } from "./model";
+import { DefaultGetRes } from "./global";
 
 export interface GetProfileRes extends DefaultGetRes {
   collectionId: string;
@@ -13,3 +13,5 @@ export interface PostProfileReq {
   bio: string;
   user: string;
 }
+
+export const getProfile = async (id: string) => {};

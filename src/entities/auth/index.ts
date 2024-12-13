@@ -1,9 +1,8 @@
 export type {
   PostUserException,
   PostUserParams,
-  postUserSchema,
   SigninException,
   SigninParams,
-  signinSchema,
   User,
-} from "./model/auth";
+} from "./api/authDataType";
+export { authQueryKey as useQueryKey } from "./api/queryKey";

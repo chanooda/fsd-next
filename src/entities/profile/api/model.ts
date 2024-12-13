@@ -1,3 +1,3 @@
-import { ProfileRes } from "@/shared/api";
+import { GetProfileRes } from "@/shared/api";
 
-export interface Profile extends ProfileRes {}
+export interface Profile extends GetProfileRes {}

@@ -1,5 +1,5 @@
 import { ArticleGetReq } from "@/shared/api";
-import { useQuery } from "@/shared/config/client";
+import { useQuery } from "@/shared/lib/client";
 import { articleQueryKey } from "../queryKey";
 
 export const useGetArticle = (req: ArticleGetReq) => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { signinAction } from "@/entities/auth/model/server";
+import { signinAction } from "@/entities/auth/api/server";
 import { Button, ErrorMessage, Input } from "@/shared/ui";
 import { useActionState } from "react";
 

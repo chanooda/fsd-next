@@ -1,5 +1,5 @@
 import { ArticleGetRes } from "@/shared/api";
-import { Article } from "./articleGetModel";
+import { Article } from "./articleDataType";
 
 export const articleGetMapper = (getArticleRes: ArticleGetRes): Article => {
   return {

@@ -1,5 +1,4 @@
-import { GetUserRes, PostUserReq, SigninReq } from "@/shared/api";
-import zod from "zod";
+import * as zod from "zod";
 
 export const postUserSchema = zod
   .object({
@@ -23,11 +22,3 @@ export const signinSchema = zod.object({
     .min(1, "이메일을 입력해주세요."),
   password: zod.string().min(1, "비밀번호를 입력해주세요."),
 });
-
-export interface PostUserParams extends PostUserReq {}
-export type PostUserException = Partial<Record<keyof PostUserParams, string>>;
-
-export interface SigninParams extends SigninReq {}
-export type SigninException = Partial<Record<keyof SigninReq, string>>;
-
-export interface User extends GetUserRes {}

@@ -1,7 +1,8 @@
 "use client";
 
+import { PostUserParams } from "@/entities/auth/api/authDataType";
 import { usePostUser } from "@/entities/auth/api/client";
-import { PostUserParams, postUserSchema } from "@/entities/auth/model/auth";
+import { postUserSchema } from "@/entities/model";
 import {
   Button,
   Form,
