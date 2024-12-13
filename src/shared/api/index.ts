@@ -1,4 +1,4 @@
-export type * from "./model";
+export * from "./model";
 
 export * from "./articleApi";
 export * from "./articleModel";

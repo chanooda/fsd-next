@@ -49,6 +49,7 @@ export const SignupPage = () => {
           // action={formAction}
           className="mx-auto mt-48 flex w-full max-w-96 flex-col gap-8 p-4"
         >
+          <p className="text-center text-xl font-bold">Signup</p>
           <FormField
             control={form.control}
             name="name"

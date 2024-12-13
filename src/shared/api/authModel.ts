@@ -21,3 +21,8 @@ export interface PostUserReq {
   email: string;
   name: string;
 }
+
+export interface SigninReq {
+  email: string;
+  password: string;
+}

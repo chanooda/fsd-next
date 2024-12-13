@@ -1,37 +1,37 @@
 "use server";
 
-import { postUser } from "@/shared/api";
+import { signin } from "@/shared/api";
 import { zodErrorFlattenString } from "@/shared/config";
 import { redirect } from "next/navigation";
 import { ClientResponseError } from "pocketbase";
 import { ZodError } from "zod";
-import { PostUserException, PostUserParams, postUserSchema } from "../auth";
+import { SigninException, SigninParams, signinSchema } from "../auth";
 
-export const signupAction = async (
-  prevState: PostUserException,
+export const signinAction = async (
+  state: SigninException,
   formData: FormData,
 ) => {
   let success = false;
-  const req: PostUserParams = {
-    name: formData.get("name") as string,
+
+  const req: SigninParams = {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
-    passwordConfirm: formData.get("passwordConfirm") as string,
   };
 
   try {
-    postUserSchema.parse(req);
-    await postUser(req);
+    signinSchema.parse(req);
+    await signin(req);
     success = true;
   } catch (e) {
     if (e instanceof ZodError) {
       console.error(e.flatten());
-      return zodErrorFlattenString<PostUserParams>(e.flatten().fieldErrors);
+      return zodErrorFlattenString<SigninParams>(e.flatten().fieldErrors);
     } else if (e instanceof ClientResponseError) {
       console.error(e.response);
-      return e.response;
+      return { password: "이메일과 비밀번호를 확인해주세요." };
     }
+    console.error(e);
     return {};
   }
-  redirect("/signin");
+  redirect("/");
 };
