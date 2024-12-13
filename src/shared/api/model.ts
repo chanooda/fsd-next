@@ -10,6 +10,7 @@ export interface DefaultListReq extends DefaultReq {
   filter?: string;
   skipTotal?: boolean;
 }
+export interface DefaultError {}
 
 export interface DefaultGetRes {
   collectionId: string;

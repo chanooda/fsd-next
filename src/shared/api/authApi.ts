@@ -1,18 +1,20 @@
 import { pb } from "../config";
-import { GetUserRes, SignUptReq } from "./authModel";
+import { GetUserRes, PostUserReq } from "./authModel";
+import { GetProfileRes } from "./profileModel";
 
-export const signup = async (req: SignUptReq) => {
+export const postUser = async (req: PostUserReq) => {
   try {
-    const record = await pb.collection<GetUserRes>("users").create({
-      ...req,
-      profile: {
-        username: req.name,
-      },
+    const profile = await pb.collection<GetProfileRes>("profile").create({
+      username: req.name,
     });
 
-    return record;
+    const user = await pb.collection<GetUserRes>("users").create({
+      ...req,
+      profile: profile.id,
+    });
+
+    return user;
   } catch (e) {
-    console.error(e);
     throw e;
   }
 };

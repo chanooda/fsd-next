@@ -7,3 +7,9 @@ export interface GetProfileRes extends DefaultGetRes {
   bio: string;
   user: string;
 }
+
+export interface PostProfileReq {
+  username: string;
+  bio: string;
+  user: string;
+}

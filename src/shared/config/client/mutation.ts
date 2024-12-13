@@ -1,7 +1,8 @@
 import {
+  DefaultError,
   MutateOptions as _MutateOptions,
   UseMutationOptions as _UseMutationOptions,
-  useMutation as useReactMutation,
+  useMutation as _useMutation,
 } from "@tanstack/react-query";
 import { useRef } from "react";
 
@@ -11,15 +12,20 @@ export type MutateOptions<TData, TError, TVariables, TContext> =
   | _MutateOptions<TData, TError, TVariables, TContext>
   | undefined;
 
-export const ussMutation = <TData, TError, TVariables, TContext>(
-  options: UseMutationOptions<TData, TError, TVariables, TContext>
+export const useMutation = <
+  TData = unknown,
+  TError = DefaultError,
+  TVariables = void,
+  TContext = unknown,
+>(
+  options: UseMutationOptions<TData, TError, TVariables, TContext>,
 ) => {
-  const { mutate: _mutate } = useReactMutation(options);
+  const { mutate: _mutate, ...rest } = _useMutation(options);
   const isMutatingRef = useRef(false);
 
   const mutate = (
     data: TVariables,
-    mutateOptions: MutateOptions<TData, TError, TVariables, TContext>
+    mutateOptions?: MutateOptions<TData, TError, TVariables, TContext>,
   ) => {
     if (isMutatingRef.current) return;
     isMutatingRef.current = true;
@@ -33,4 +39,6 @@ export const ussMutation = <TData, TError, TVariables, TContext>(
       },
     });
   };
+
+  return { ...rest, mutate };
 };

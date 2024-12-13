@@ -1,1 +1,6 @@
-export type { SignupMutateParams, User } from "./api/model";
+export type {
+  PostUserException,
+  PostUserParams,
+  postUserSchema,
+  User,
+} from "./model/auth";

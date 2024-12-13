@@ -15,11 +15,9 @@ export interface GetUserRes {
   };
 }
 
-export interface SignUptReq {
+export interface PostUserReq {
   password: string;
   passwordConfirm: string;
   email: string;
-  emailVisibility: boolean;
-  verified: boolean;
   name: string;
 }
