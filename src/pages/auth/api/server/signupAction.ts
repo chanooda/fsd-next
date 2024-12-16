@@ -1,15 +1,12 @@
 "use server";
 
+import { PostUserException, PostUserParams } from "@/entities/auth";
+import { postUserSchema } from "@/entities/model";
 import { postUser } from "@/shared/api";
 import { zodErrorFlattenString } from "@/shared/config";
 import { redirect } from "next/navigation";
 import { ClientResponseError } from "pocketbase";
 import { ZodError } from "zod";
-import {
-  PostUserException,
-  PostUserParams,
-  postUserSchema,
-} from "../authDataType";
 
 export const signupAction = async (
   prevState: PostUserException,

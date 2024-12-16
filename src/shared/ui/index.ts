@@ -15,6 +15,7 @@ export {
   FormMessage,
 } from "./shadcn/components/ui/form";
 export { Input } from "./shadcn/components/ui/input";
+export { Separator } from "./shadcn/components/ui/separator";
 export {
   Tabs,
   TabsContent,

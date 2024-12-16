@@ -21,3 +21,10 @@ export interface DefaultGetRes {
   created: string;
   updated: string;
 }
+
+export interface ServerActionResponse<Data, Error = unknown> {
+  isSuccess: boolean;
+  isError: boolean;
+  data?: Data;
+  error?: Error;
+}

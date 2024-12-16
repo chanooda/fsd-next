@@ -1,3 +1,4 @@
+import { RecordAuthResponse } from "pocketbase";
 import { pb } from "../config";
 import { GetProfileRes } from "./profileApi";
 
@@ -23,11 +24,6 @@ export interface PostUserReq {
   name: string;
 }
 
-export interface SigninReq {
-  email: string;
-  password: string;
-}
-
 export const postUser = async (req: PostUserReq) => {
   try {
     const user = await pb.collection<GetUserRes>("users").create({
@@ -45,6 +41,13 @@ export const postUser = async (req: PostUserReq) => {
     throw e;
   }
 };
+
+export interface SigninReq {
+  email: string;
+  password: string;
+}
+
+export interface SigninRes extends RecordAuthResponse<GetUserRes> {}
 
 export const signin = async (req: SigninReq) => {
   try {
