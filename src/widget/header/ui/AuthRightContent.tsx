@@ -13,7 +13,7 @@ export const AuthRightContent = async () => {
     const userData = await getUser(payload?.id);
     return (
       <div>
-        <Link href={LINK.ME}>
+        <Link href={LINK.PROFILE}>
           <div className="flex items-center gap-4">
             <Avatar className="h-6 w-6">
               <AvatarImage

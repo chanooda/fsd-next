@@ -1,4 +1,4 @@
-import { ArticlePage } from "../pages/article";
+import { ArticlePage } from "../_pages/article";
 
 export default async function Home({
   searchParams,
