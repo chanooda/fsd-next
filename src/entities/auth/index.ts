@@ -1,2 +1,4 @@
 export type * from "./api/authDataType";
-export { authQueryKey as useQueryKey } from "./api/queryKey";
+export { authQueryKey } from "./api/queryKey";
+
+export { jwtSchema, postUserSchema, signinSchema } from "./model/schema";

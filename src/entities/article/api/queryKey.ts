@@ -1,14 +1,14 @@
 import { getArticle, getArticles } from "@/shared/api";
 import { createQueryKeys } from "@lukemorales/query-key-factory";
-import { ArticlesGetQueryParams } from "../model/articleGetModel";
+import { ArticlesGetQueryParams } from "./articleDataType";
 
 export const articleQueryKey = createQueryKeys("articles", {
-  detail: (articleId: string) => ({
-    queryKey: [articleId],
-    queryFn: () => getArticle(articleId),
+  detail: (id: string) => ({
+    queryKey: ["articles", id],
+    queryFn: () => getArticle({ id }),
   }),
   list: (req: ArticlesGetQueryParams) => ({
-    queryKey: [{ req }],
+    queryKey: ["articles", { req }],
     queryFn: () => getArticles(req),
   }),
 });

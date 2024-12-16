@@ -23,11 +23,13 @@ export interface ArticleGetReq {
 
 export interface ArticlesGetReq extends DefaultListReq {}
 
-export const getArticle = async (id: string) => {
+export const getArticle = async (req: ArticleGetReq) => {
   try {
-    const article = await pb.collection<ArticleGetRes>("article").getOne(id, {
-      expand: "author",
-    });
+    const article = await pb
+      .collection<ArticleGetRes>("article")
+      .getOne(req.id, {
+        expand: "author",
+      });
 
     console.log(inspect(article, false, null, true));
 

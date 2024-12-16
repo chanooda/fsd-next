@@ -1,7 +1,10 @@
 "use server";
 
-import { PostUserException, PostUserParams } from "@/entities/auth";
-import { postUserSchema } from "@/entities/auth/model";
+import {
+  PostUserException,
+  PostUserParams,
+  postUserSchema,
+} from "@/entities/auth";
 import { postUser } from "@/shared/api";
 import { zodErrorFlattenString } from "@/shared/config";
 import { redirect } from "next/navigation";

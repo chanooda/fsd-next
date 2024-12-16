@@ -18,10 +18,14 @@ export interface GetUserRes {
   };
 }
 
-export const getUser = async (id: string) => {
+export interface GetUserReq {
+  id: string;
+}
+
+export const getUser = async (req: GetUserReq) => {
   try {
     const token = await getTokenWithServer();
-    const user = await pb.collection<GetUserRes>("users").getOne(id, {
+    const user = await pb.collection<GetUserRes>("users").getOne(req.id, {
       expand: "profile_via_user",
       headers: {
         Authorization: `Bearer ${token}`,

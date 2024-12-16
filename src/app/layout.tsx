@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AuthProvider } from "./_api/AuthProvider";
 import QueryProvider from "./_api/QueryProvider";
 import { Layout } from "./_ui/Layout";
 import "./globals.css";
@@ -17,7 +18,9 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <QueryProvider>
-          <Layout>{children}</Layout>
+          <AuthProvider>
+            <Layout>{children}</Layout>
+          </AuthProvider>
         </QueryProvider>
       </body>
     </html>

@@ -1,7 +1,6 @@
 "use server";
 
-import { SignInData, SigninParams } from "@/entities/auth";
-import { signinSchema } from "@/entities/auth/model";
+import { SignInData, SigninParams, signinSchema } from "@/entities/auth";
 import { signin } from "@/shared/api";
 import { ServerActionResponse } from "@/shared/api/global";
 import { LINK } from "@/shared/config";
