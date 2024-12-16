@@ -1,3 +1,5 @@
+"use client";
+
 import { GetUserRes, postUser } from "@/shared/api";
 import { useMutation } from "@/shared/lib/client";
 import { ClientResponseError } from "pocketbase";

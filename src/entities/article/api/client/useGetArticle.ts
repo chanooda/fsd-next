@@ -1,3 +1,5 @@
+"use client";
+
 import { ArticleGetReq } from "@/shared/api";
 import { useQuery } from "@/shared/lib/client";
 import { articleQueryKey } from "../queryKey";

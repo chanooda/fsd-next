@@ -1,0 +1,1 @@
+export { checkIsAuthInClient } from "./checkIsAuth";

@@ -22,3 +22,11 @@ export const signinSchema = zod.object({
     .min(1, "이메일을 입력해주세요."),
   password: zod.string().min(1, "비밀번호를 입력해주세요."),
 });
+
+export const jwtSchema = zod.object({
+  collectionId: zod.string(),
+  exp: zod.number(),
+  id: zod.string(),
+  refreshable: zod.boolean(),
+  type: zod.string(),
+});

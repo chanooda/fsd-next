@@ -39,7 +39,6 @@ export const Pagination = ({
   };
 
   useEffect(() => {
-    console.log(currentPage);
     setStartPage(getStartPage(currentPage, pageSize));
   }, []);
 
