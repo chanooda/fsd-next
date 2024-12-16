@@ -1,7 +1,8 @@
 import { checkIsAuthInServer } from "@/entities/auth/model/server";
 import { LINK } from "@/shared/config";
-import { Button } from "@/shared/ui";
 import Link from "next/link";
+import { AuthRightContent } from "./AuthRightContent";
+import { UnAuthRightContent } from "./UnAuthRightContent";
 
 export const Header = async () => {
   const isAuth = await checkIsAuthInServer();
@@ -12,11 +13,7 @@ export const Header = async () => {
           <p className="font-bold">conduit</p>
         </Link>
       </div>
-      <div>
-        <Link href={LINK.SIGNIN}>
-          {isAuth ? <div>auth</div> : <Button variant="ghost">Signin</Button>}
-        </Link>
-      </div>
+      <div>{isAuth ? <AuthRightContent /> : <UnAuthRightContent />}</div>
     </div>
   );
 };

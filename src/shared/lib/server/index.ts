@@ -1,0 +1,1 @@
+export { getTokenWithServer } from "./getTokenWithServer";

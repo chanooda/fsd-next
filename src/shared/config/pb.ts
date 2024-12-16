@@ -7,7 +7,7 @@ export const pb = new PocketBase(backendBaseUrl);
 export const getFileUrl = (
   collection: string,
   id: string,
-  fileName: string
+  fileName: string,
 ) => {
   return `${fileUrl}${collection}/${id}/${fileName}`;
 };

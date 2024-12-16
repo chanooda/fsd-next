@@ -36,7 +36,7 @@ export const SigninPage = () => {
           <Separator />
           <div className="flex justify-end">
             <Link href={LINK.SIGNUP}>
-              <Button variant="ghost">회원가입</Button>
+              <Button variant="ghost">Signup</Button>
             </Link>
           </div>
         </div>

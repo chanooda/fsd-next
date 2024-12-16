@@ -5,6 +5,6 @@ export default async function Home({
 }: {
   searchParams: Record<string, string>;
 }) {
-  const { page } = searchParams;
+  const { page } = await searchParams;
   return <ArticlePage page={page} />;
 }

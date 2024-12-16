@@ -5,7 +5,7 @@ import { jwtSchema } from "../schema";
 export const checkIsAuthInServer = async () => {
   const cookieStore = await cookies();
 
-  const token = cookieStore.get("token")?.name;
+  const token = cookieStore.get("token")?.value;
 
   if (!token) return false;
 

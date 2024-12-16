@@ -1,5 +1,6 @@
 import { RecordAuthResponse } from "pocketbase";
 import { pb } from "../config";
+import { getTokenWithServer } from "../lib/server";
 import { GetProfileRes } from "./profileApi";
 
 export interface GetUserRes {
@@ -13,9 +14,28 @@ export interface GetUserRes {
   created: string;
   updated: string;
   expand: {
-    profile: GetProfileRes;
+    profile_via_user: GetProfileRes;
   };
 }
+
+export const getUser = async (id: string) => {
+  try {
+    const token = await getTokenWithServer();
+    const user = await pb.collection<GetUserRes>("users").getOne(id, {
+      expand: "profile_via_user",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log("user", user);
+
+    return user;
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
+};
 
 export interface PostUserReq {
   password: string;
@@ -46,7 +66,7 @@ export interface SigninReq {
   email: string;
   password: string;
 }
-
+``;
 export interface SigninRes extends RecordAuthResponse<GetUserRes> {}
 
 export const signin = async (req: SigninReq) => {
@@ -54,6 +74,7 @@ export const signin = async (req: SigninReq) => {
     const user = await pb
       .collection<GetUserRes>("users")
       .authWithPassword(req.email, req.password);
+
     return user;
   } catch (e) {
     console.error(e);
