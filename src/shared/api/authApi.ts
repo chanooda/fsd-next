@@ -32,7 +32,7 @@ export const getUser = async (req: GetUserReq) => {
       },
     });
 
-    console.log("user", user);
+    "user", user;
 
     return user;
   } catch (e) {

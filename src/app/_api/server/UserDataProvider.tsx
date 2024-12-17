@@ -8,13 +8,16 @@ import {
 } from "@tanstack/react-query";
 import { ReactNode } from "react";
 
-export const AuthProvider = async ({ children }: { children: ReactNode }) => {
+export const UserDataProvider = async ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const queryClient = new QueryClient();
 
   const token = await getTokenWithServer();
-  const payload = parseJwt(token || "");
-  console.log("payload", payload);
-  if (payload?.id) {
+  if (token) {
+    const payload = parseJwt(token);
     queryClient.prefetchQuery({
       ...authQueryKey.detail(payload.id),
     });

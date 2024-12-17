@@ -18,7 +18,7 @@ export const getTags = async (req?: TagGetListReq) => {
       sort: "-article_via_tags.id",
       filter: "article_via_tags.id>0",
     });
-    console.log("tags", tags);
+
     return tags;
   } catch (e) {
     console.error(e);

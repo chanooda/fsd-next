@@ -1,5 +1,4 @@
 import { pb } from "@/shared/config";
-import { inspect } from "node:util";
 import { DefaultGetRes, DefaultListReq } from "./global";
 import { GetProfileRes } from "./profileApi";
 
@@ -31,8 +30,6 @@ export const getArticle = async (req: ArticleGetReq) => {
         expand: "author",
       });
 
-    console.log(inspect(article, false, null, true));
-
     return article;
   } catch (error) {
     console.error(error);
@@ -48,8 +45,6 @@ export const getArticles = async (req?: DefaultListReq) => {
         expand: "author",
         ...req,
       });
-
-    console.log("articles", articles);
 
     return articles;
   } catch (e) {

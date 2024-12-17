@@ -40,7 +40,7 @@ export const ArticlesPage = async ({ page }: { page?: string }) => {
           <div className="flex flex-wrap gap-2 rounded-lg bg-[#242424] p-2">
             {tags?.items.map((tag) => (
               <Link href={`/tag/${tag.id}`} key={tag.id}>
-                <Badge className="cursor-pointer bg-white text-[#242424] hover:text-white">
+                <Badge className="cursor-pointer bg-white text-[#242424] hover:bg-[#242424] hover:text-white">
                   {tag.name}
                 </Badge>
               </Link>

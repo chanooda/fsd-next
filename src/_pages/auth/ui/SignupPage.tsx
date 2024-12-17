@@ -3,6 +3,7 @@
 import { postUserSchema } from "@/entities/auth";
 import { PostUserParams } from "@/entities/auth/api/authDataType";
 import { usePostUser } from "@/entities/auth/api/client";
+import { LINK } from "@/shared/config";
 
 import {
   Button,
@@ -13,8 +14,10 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  Separator,
 } from "@/shared/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
@@ -49,7 +52,7 @@ export const SignupPage = () => {
         <form
           onSubmit={onSubmit}
           // action={formAction}
-          className="mx-auto mt-48 flex w-full max-w-96 flex-col gap-8 p-4"
+          className="mx-auto mt-40 flex w-full max-w-96 flex-col gap-8 p-4"
         >
           <p className="text-center text-xl font-bold">Signup</p>
           <FormField
@@ -117,6 +120,14 @@ export const SignupPage = () => {
             )}
           />
           <Button type="submit">Submit</Button>
+          <div>
+            <Separator />
+            <div className="flex justify-end">
+              <Link href={LINK.SIGNIN}>
+                <Button variant="ghost">Signin</Button>
+              </Link>
+            </div>
+          </div>
         </form>
       </Form>
     </div>
