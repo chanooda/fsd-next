@@ -4,6 +4,7 @@ import {
   checkIsAuthInClient,
   useAuthInfoStore,
 } from "@/entities/auth/model/client";
+import { getTokenWithClient } from "@/shared/lib/client";
 import { useEffect } from "react";
 
 export const CheckAuth = () => {
@@ -11,9 +12,10 @@ export const CheckAuth = () => {
 
   useEffect(() => {
     if (checkIsAuthInClient()) {
-      setAuthInfo({ isAuth: true });
+      const token = getTokenWithClient() as string;
+      setAuthInfo({ isAuth: true, token });
     } else {
-      setAuthInfo({ isAuth: false });
+      setAuthInfo({ isAuth: false, token: undefined });
     }
   }, []);
 

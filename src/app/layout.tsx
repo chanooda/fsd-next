@@ -1,8 +1,6 @@
-import { AuthInfoProvider } from "@/entities/auth/model/client";
 import { checkIsAuthInServer } from "@/entities/auth/model/server";
 import type { Metadata } from "next";
 import { QueryProvider } from "./_api/client";
-import { UserDataProvider } from "./_api/server/UserDataProvider";
 import { Layout } from "./_ui/Layout";
 import "./globals.css";
 
@@ -22,11 +20,7 @@ export default async function RootLayout({
     <html lang="ko">
       <body>
         <QueryProvider>
-          <UserDataProvider>
-            <AuthInfoProvider initialState={{ isAuth }}>
-              <Layout>{children}</Layout>
-            </AuthInfoProvider>
-          </UserDataProvider>
+          <Layout>{children}</Layout>
         </QueryProvider>
       </body>
     </html>

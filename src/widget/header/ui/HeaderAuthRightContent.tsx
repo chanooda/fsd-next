@@ -1,15 +1,16 @@
 "use client";
 
 import { useGetUser } from "@/entities/auth/api/client";
+import { useAuthInfoStore } from "@/entities/auth/model/client";
 import { getFileUrl, LINK } from "@/shared/config";
-import { getTokenWithClient } from "@/shared/lib/client";
 import { parseJwt } from "@/shared/lib/token";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import Link from "next/link";
 
 export const AuthRightContent = () => {
-  const token = getTokenWithClient();
+  const token = useAuthInfoStore((state) => state.state.token);
   const payload = token ? parseJwt(token) : undefined;
+
   const { data: userData } = useGetUser(payload?.id);
 
   if (!userData) return <div></div>;

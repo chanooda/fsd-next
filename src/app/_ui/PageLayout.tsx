@@ -1,5 +1,6 @@
 import { AuthInfoProvider } from "@/entities/auth/model/client";
 import { checkIsAuthInServer } from "@/entities/auth/model/server";
+import { getTokenWithServer } from "@/shared/lib/server";
 import { Header } from "@/widget/header/ui";
 import { ReactNode } from "react";
 import { CheckAuth } from "../_model/CheckAuth";
@@ -15,10 +16,11 @@ export const PageLayout = async ({
   isHeader = true,
   isCheckAuthInClient = true,
 }: PageLayoutProps) => {
+  const token = await getTokenWithServer();
   const isAuth = await checkIsAuthInServer();
 
   return (
-    <AuthInfoProvider initialState={{ isAuth }}>
+    <AuthInfoProvider initialState={{ isAuth, token }}>
       {isHeader && <Header />}
       {children}
       {isCheckAuthInClient && <CheckAuth />}

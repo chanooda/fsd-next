@@ -5,10 +5,11 @@ import { createStore, useStore } from "zustand";
 
 export interface AuthInfoState {
   isAuth: boolean;
+  token?: string;
 }
 
 export interface AuthInfoAction {
-  setAuthInfo: (state: AuthInfoState) => void;
+  setAuthInfo: (state: Partial<AuthInfoState>) => void;
   clearAuthInfo: () => void;
 }
 
@@ -19,6 +20,7 @@ export interface AuthInfoStore {
 
 export const authInfoDefaultState: AuthInfoState = {
   isAuth: false,
+  token: undefined,
 };
 
 export const createAuthInfoStore = (
@@ -32,7 +34,7 @@ export const createAuthInfoStore = (
       setAuthInfo(state) {
         set((prev) => ({
           ...prev,
-          state: { isAuth: state.isAuth },
+          state: { ...prev.state, ...state },
         }));
       },
       clearAuthInfo() {

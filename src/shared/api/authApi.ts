@@ -32,8 +32,6 @@ export const getUser = async (req: GetUserReq) => {
       },
     });
 
-    "user", user;
-
     return user;
   } catch (e) {
     console.error(e);
