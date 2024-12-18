@@ -12,7 +12,7 @@ export const ArticlesPage = async ({ page }: { page?: string }) => {
   const tags = await getTags();
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pt-16">
       <div className="flex items-center justify-center bg-[#242424] py-12">
         <div>
           <div className="flex flex-col gap-1 text-center text-white">

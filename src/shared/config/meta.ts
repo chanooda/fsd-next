@@ -4,4 +4,5 @@ export const LINK = {
   SIGNUP: "/signup",
   WRITE: "/write",
   PROFILE: "/profile",
+  ARTICLE: "/article",
 };

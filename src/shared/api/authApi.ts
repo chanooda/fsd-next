@@ -1,9 +1,9 @@
 import { RecordAuthResponse } from "pocketbase";
 import { pb } from "../config";
 import { getTokenWithServer } from "../lib/server";
-import { GetProfileRes } from "./profileApi";
+import { ProfileGetRes } from "./profileApi";
 
-export interface GetUserRes {
+export interface UserGetRes {
   collectionId: string;
   collectionName: string;
   id: string;
@@ -14,18 +14,18 @@ export interface GetUserRes {
   created: string;
   updated: string;
   expand: {
-    profile_via_user: GetProfileRes;
+    profile_via_user: ProfileGetRes[];
   };
 }
 
-export interface GetUserReq {
+export interface UserGetReq {
   id: string;
 }
 
-export const getUser = async (req: GetUserReq) => {
+export const getUser = async (req: UserGetReq) => {
   try {
     const token = await getTokenWithServer();
-    const user = await pb.collection<GetUserRes>("users").getOne(req.id, {
+    const user = await pb.collection<UserGetRes>("users").getOne(req.id, {
       expand: "profile_via_user",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -39,20 +39,20 @@ export const getUser = async (req: GetUserReq) => {
   }
 };
 
-export interface PostUserReq {
+export interface UserPostReq {
   password: string;
   passwordConfirm: string;
   email: string;
   name: string;
 }
 
-export const postUser = async (req: PostUserReq) => {
+export const postUser = async (req: UserPostReq) => {
   try {
-    const user = await pb.collection<GetUserRes>("users").create({
+    const user = await pb.collection<UserGetRes>("users").create({
       ...req,
     });
 
-    const profile = await pb.collection<GetProfileRes>("profile").create({
+    const profile = await pb.collection<ProfileGetRes>("profile").create({
       username: req.name,
       user: user.id,
     });
@@ -69,12 +69,12 @@ export interface SigninReq {
   password: string;
 }
 ``;
-export interface SigninRes extends RecordAuthResponse<GetUserRes> {}
+export interface SigninRes extends RecordAuthResponse<UserGetRes> {}
 
 export const signin = async (req: SigninReq) => {
   try {
     const user = await pb
-      .collection<GetUserRes>("users")
+      .collection<UserGetRes>("users")
       .authWithPassword(req.email, req.password);
 
     return user;

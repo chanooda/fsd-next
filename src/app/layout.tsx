@@ -1,6 +1,6 @@
-import { checkIsAuthInServer } from "@/entities/auth/model/server";
 import type { Metadata } from "next";
 import { QueryProvider } from "./_api/client";
+import { UserDataProvider } from "./_api/client/UserDataProvider";
 import { Layout } from "./_ui/Layout";
 import "./globals.css";
 
@@ -14,13 +14,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let isAuth = await checkIsAuthInServer();
-
   return (
     <html lang="ko">
       <body>
         <QueryProvider>
-          <Layout>{children}</Layout>
+          <UserDataProvider>
+            <Layout>{children}</Layout>
+          </UserDataProvider>
         </QueryProvider>
       </body>
     </html>

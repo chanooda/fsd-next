@@ -1,7 +1,7 @@
 import { ProfilePage } from "@/_pages/profile";
 import { PageLayout } from "../_ui/PageLayout";
 
-const page = () => {
+const page = async () => {
   return (
     <PageLayout>
       <ProfilePage />

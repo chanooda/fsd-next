@@ -1,10 +1,6 @@
 import { Article } from "@/entities/article";
 import { getFileUrl } from "@/shared/config";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/shared/ui/shadcn/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/";
 import { Heart } from "lucide-react";
 import Link from "next/link";
 

@@ -1,6 +1,6 @@
 import { pb } from "@/shared/config";
 import { DefaultGetRes, DefaultListReq } from "./global";
-import { GetProfileRes } from "./profileApi";
+import { ProfileGetRes } from "./profileApi";
 
 export interface ArticleGetRes extends DefaultGetRes {
   slug?: string;
@@ -12,7 +12,7 @@ export interface ArticleGetRes extends DefaultGetRes {
   favoritesCount: number;
   author: string;
   expand: {
-    author: GetProfileRes;
+    author: ProfileGetRes;
   };
 }
 
