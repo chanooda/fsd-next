@@ -8,8 +8,7 @@ export interface ArticleGetRes extends DefaultGetRes {
   description?: string;
   body: string;
   tagList?: string[];
-  isFavorite: boolean;
-  favoritesCount: number;
+  favoriteCount: number;
   author: string;
   expand: {
     author: ProfileGetRes;

@@ -4,4 +4,4 @@ export type {
   ArticlesGetQueryParams,
 } from "./api/articleDataType";
 export type { articleGetMapper, articlesGetMapper } from "./api/articleMapper";
-export type { articleQueryKey } from "./api/queryKey";
+export { articleQueryKey } from "./api/queryKey";
