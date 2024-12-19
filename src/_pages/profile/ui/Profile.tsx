@@ -64,8 +64,11 @@ export const Profile = () => {
         <ProfileAvatar />
         <div className="gap-4">
           <p className="text-center text-2xl font-semibold">{data.name}</p>
-          {data.expand.profile_via_user[0].bio ? (
-            <p className="text-center font-semibold">
+          {data.expand.profile_via_user[0].bio && !isEdit ? (
+            <p
+              className="cursor-pointer text-center font-semibold"
+              onClick={changeEditModeHandler}
+            >
               {data.expand.profile_via_user[0].bio}
             </p>
           ) : (

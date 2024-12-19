@@ -1,5 +1,6 @@
 import { pb } from "../config";
 import { getTokenWithServer } from "../lib/server";
+import { ArticleGetRes } from "./articleApi";
 import { DefaultGetRes } from "./global";
 
 export interface ProfileGetReq {
@@ -12,6 +13,7 @@ export interface ProfileGetRes extends DefaultGetRes {
   avatar: string;
   bio: string;
   user: string;
+  followerArticles: ArticleGetRes[];
 }
 
 export interface ProfilePostReq {
@@ -27,6 +29,7 @@ export interface ProfilePatchReq {
   bio?: string;
   avatar?: File;
   user: string;
+  followerArticles?: string[];
 }
 
 export const getProfile = async (req: ProfileGetReq) => {};

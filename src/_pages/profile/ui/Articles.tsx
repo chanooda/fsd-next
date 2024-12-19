@@ -14,7 +14,7 @@ export const Articles = async () => {
   });
 
   return (
-    <div className="mt-4 flex w-full flex-col items-center gap-4">
+    <div className="flex w-full flex-col items-center gap-4">
       {articles?.items.map((article) => {
         return (
           <Link
