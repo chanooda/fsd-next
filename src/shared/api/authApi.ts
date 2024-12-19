@@ -83,3 +83,12 @@ export const signin = async (req: SigninReq) => {
     throw e;
   }
 };
+
+export const signout = () => {
+  try {
+    pb.authStore.clear();
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
+};
